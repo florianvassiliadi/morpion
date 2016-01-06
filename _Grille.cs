@@ -9,6 +9,12 @@ namespace MORPION
     public class _Grille
     {
         public List<List<String>> Grille = new List<List<string>>();
+
+        public _Grille()
+        {
+            InitialiserGrille();
+        }
+
         public void AfficherGrille()
         {
             foreach (var ligne in Grille)
@@ -17,6 +23,7 @@ namespace MORPION
                 {
                     Console.Write(cas);
                 }
+                Console.WriteLine();
             }
         }
 
@@ -35,6 +42,11 @@ namespace MORPION
                 liste.Add("*");
             }
             return liste;
+        }
+
+        public void PlacerPion(int ligne,int colonne, String pion)
+        {
+            Grille[ligne][colonne] = pion;
         }
     }
 }

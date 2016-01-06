@@ -12,8 +12,10 @@ namespace MORPION
         static void Main(string[] args)
         {
             Grille = new _Grille();
-            Grille.InitialiserGrille();
             Grille.AfficherGrille();
+            Grille.PlacerPion(0,2,"X");
+            Grille.AfficherGrille();
+
         }
     }
 }

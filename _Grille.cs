@@ -48,5 +48,31 @@ namespace MORPION
         {
             Grille[ligne][colonne] = pion;
         }
+
+        public bool HorizontalRemporte()
+        {
+            bool result = false;
+            foreach(var ligne in Grille)
+            {
+                int xCount = 0;
+                int oCount = 0;
+                foreach(var cas in ligne)
+                {
+                    if(cas=="X")
+                    {
+                        xCount++;
+                    }
+                    if(cas =="O")
+                    {
+                        oCount++;
+                    }
+                }
+                if(xCount>2 || oCount>2)
+                {
+                    result = true;
+                }
+            }
+            return result;
+        }
     }
 }

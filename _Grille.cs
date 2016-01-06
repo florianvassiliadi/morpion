@@ -74,5 +74,56 @@ namespace MORPION
             }
             return result;
         }
+
+        public bool VerticalRemporte()
+        {
+            bool result = false;
+            foreach (var ligne in Grille)
+            {
+                int xCount = 0;
+                int oCount = 0;
+                foreach (var cas in ligne)
+                {
+                    if (cas == "X")
+                    {
+                        xCount++;
+                    }
+                    if (cas == "O")
+                    {
+                        oCount++;
+                    }
+                }
+                if (xCount > 2 || oCount > 2)
+                {
+                    result = true;
+                }
+            }
+            return result;
+        }
+
+        public List<List<String>> Renverser()
+        {
+            List<List<String>> GrilleRecup = new List<List<string>>();
+            GrilleRecup.Add(InitialiserLigne());
+            GrilleRecup.Add(InitialiserLigne());
+            GrilleRecup.Add(InitialiserLigne());
+
+            int lIndex=0;
+            int cIndex=0;
+            foreach (var ligne in Grille)
+            {
+                foreach (var cas in ligne)
+                {
+                    if(cas!="*")
+                    {
+                        GrilleRecup[cIndex][lIndex] = cas;
+                    }
+                    cIndex++;
+                }
+                lIndex++;
+            }
+            return GrilleRecup;
+        }
+
     }
 }

@@ -77,8 +77,9 @@ namespace MORPION
 
         public bool VerticalRemporte()
         {
+            List<List<String>> GrilleRenverse = Renverser();
             bool result = false;
-            foreach (var ligne in Grille)
+            foreach (var ligne in GrilleRenverse)
             {
                 int xCount = 0;
                 int oCount = 0;
@@ -112,6 +113,7 @@ namespace MORPION
             int cIndex=0;
             foreach (var ligne in Grille)
             {
+                cIndex = 0;
                 foreach (var cas in ligne)
                 {
                     if(cas!="*")

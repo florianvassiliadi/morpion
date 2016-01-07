@@ -102,15 +102,19 @@ namespace MORPION
             return result;
         }
 
-        public bool DiagonalRemport()
+        public bool DiagonalRemporte(String sens)
         {
+            List<List<String>> grilleRecup = Grille;
+            if (sens == "droite-gauche")
+            {
+                grilleRecup=this.RenverserDiagonale();
+            }
             bool result = false;
             List<String> recupValues = new List<string>();
-            //GAUCHE DROITE
             int cpt = 0;
-            foreach(var ligne in Grille)
+            foreach(var ligne in grilleRecup)
             {
-                recupValues.Add(Grille[cpt][cpt]);
+                recupValues.Add(grilleRecup[cpt][cpt]);
                 cpt++;
             }
             int similairesCpt = 0;
@@ -127,6 +131,16 @@ namespace MORPION
                 result = true;
             }
             return result;
+        }
+
+        public List<List<String>> RenverserDiagonale()
+        {
+            List <List<String>> grille = Grille;
+            foreach (var ligne in grille)
+            {
+                ligne.Reverse();
+            }
+            return grille;
         }
 
         public List<List<String>> Renverser()

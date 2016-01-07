@@ -104,31 +104,34 @@ namespace MORPION
 
         public bool DiagonalRemporte(String sens)
         {
-            List<List<String>> grilleRecup = Grille;
-            if (sens == "droite-gauche")
-            {
-                grilleRecup=this.RenverserDiagonale();
-            }
             bool result = false;
-            List<String> recupValues = new List<string>();
-            int cpt = 0;
-            foreach(var ligne in grilleRecup)
-            {
-                recupValues.Add(grilleRecup[cpt][cpt]);
-                cpt++;
-            }
-            int similairesCpt = 0;
-            String elem0 = recupValues[0];
-            foreach(var item in recupValues)
-            {
-                if(item==elem0)
+            if (Grille[1][1]!="*")
+            { 
+                List<List<String>> grilleRecup = Grille;
+                if (sens == "droite-gauche")
                 {
-                    similairesCpt++;
+                    grilleRecup=this.RenverserDiagonale();
                 }
-            }
-            if(similairesCpt==recupValues.Count)
-            {
-                result = true;
+                List<String> recupValues = new List<string>();
+                int cpt = 0;
+                foreach(var ligne in grilleRecup)
+                {
+                    recupValues.Add(grilleRecup[cpt][cpt]);
+                    cpt++;
+                }
+                int similairesCpt = 0;
+                String elem0 = recupValues[0];
+                foreach(var item in recupValues)
+                {
+                    if(item==elem0)
+                    {
+                        similairesCpt++;
+                    }
+                }
+                if(similairesCpt==recupValues.Count)
+                {
+                    result = true;
+                }
             }
             return result;
         }
@@ -166,6 +169,16 @@ namespace MORPION
                 lIndex++;
             }
             return GrilleRecup;
+        }
+
+        public bool EstJeuTermine()
+        {
+            bool result = false;
+            if(HorizontalRemporte() || VerticalRemporte() || DiagonalRemporte("gauche-droite") || DiagonalRemporte("droite-gauche"))
+            {
+                result = true;
+            }
+            return result;
         }
 
     }

@@ -13,16 +13,15 @@ namespace MORPION
         {
             Grille = new _Grille();
             Grille.AfficherGrille();
-            Console.WriteLine();
-            Grille.PlacerPion(0,2,"X");
-            Grille.PlacerPion(1, 1, "X");
-            Grille.PlacerPion(2, 0, "X");
-            Grille.AfficherGrille();
-            Console.WriteLine();
-            //List<List<String>> grille2 = Grille.Renverser();
-            //Grille.Grille = grille2;
-            Grille.AfficherGrille();
-            Console.WriteLine(Grille.DiagonalRemporte("droite-gauche"));
+            while (!Grille.EstJeuTermine())
+            {
+                Console.WriteLine();
+                String point = Console.ReadLine();
+                string[] recup = point.Split(':');
+                Grille.PlacerPion(Int32.Parse(recup[0]),Int32.Parse(recup[1]),"X");
+                Grille.AfficherGrille();
+            }
+            Console.WriteLine("JEU TERMINE");
         }
     }
 }

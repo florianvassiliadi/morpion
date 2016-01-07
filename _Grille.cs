@@ -102,6 +102,33 @@ namespace MORPION
             return result;
         }
 
+        public bool DiagonalRemport()
+        {
+            bool result = false;
+            List<String> recupValues = new List<string>();
+            //GAUCHE DROITE
+            int cpt = 0;
+            foreach(var ligne in Grille)
+            {
+                recupValues.Add(Grille[cpt][cpt]);
+                cpt++;
+            }
+            int similairesCpt = 0;
+            String elem0 = recupValues[0];
+            foreach(var item in recupValues)
+            {
+                if(item==elem0)
+                {
+                    similairesCpt++;
+                }
+            }
+            if(similairesCpt==recupValues.Count)
+            {
+                result = true;
+            }
+            return result;
+        }
+
         public List<List<String>> Renverser()
         {
             List<List<String>> GrilleRecup = new List<List<string>>();

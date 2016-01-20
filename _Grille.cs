@@ -110,7 +110,7 @@ namespace MORPION
                 List<List<String>> grilleRecup = Grille;
                 if (sens == "droite-gauche")
                 {
-                    grilleRecup=this.RenverserDiagonale();
+                    //grilleRecup=RenverserDiag(grilleRecup);
                 }
                 List<String> recupValues = new List<string>();
                 int cpt = 0;
@@ -136,14 +136,27 @@ namespace MORPION
             return result;
         }
 
-        public List<List<String>> RenverserDiagonale()
+        //public List<List<String>> RenverserDiagonale()
+        //{
+        //    _Grille g = (_Grille)this.MemberwiseClone();
+        //    List<List<String>> listeuh = g.Grille;
+        //    foreach (var ligne in listeuh)
+        //    {
+        //        ligne.Reverse();
+        //    }
+        //    Console.WriteLine("RenverserDiagonale");
+        //    AfficherGrille();
+        //    Console.WriteLine("**********");
+        //    return listeuh;
+        //}
+
+        public static List<List<String>> RenverserDiag(List<List<String>> grid)
         {
-            List <List<String>> grille = Grille;
-            foreach (var ligne in grille)
+            foreach (var ligne in grid)
             {
                 ligne.Reverse();
             }
-            return grille;
+            return grid;
         }
 
         public List<List<String>> Renverser()

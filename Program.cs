@@ -18,10 +18,15 @@ namespace MORPION
                 Console.WriteLine();
                 String point = Console.ReadLine();
                 string[] recup = point.Split(':');
-                Grille.PlacerPion(Int32.Parse(recup[0]),Int32.Parse(recup[1]),"X");
+                Grille.PlacerPion(Int32.Parse(recup[0]),Int32.Parse(recup[1]),"O");
                 Grille.AfficherGrille();
+                _IA ia = new _IA();
+                Grille.Grille= ia.jouer(Grille.Grille,3);
+                Grille.AfficherGrille();
+
             }
             Console.WriteLine("JEU TERMINE");
         }
+
     }
 }

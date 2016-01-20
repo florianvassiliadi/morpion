@@ -295,6 +295,5 @@ namespace MORPION
             //Si le jeu est fini et que personne n'a gagné, on renvoie 3
             return 3;
         }
-
     }
 }

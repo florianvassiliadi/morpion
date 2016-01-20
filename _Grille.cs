@@ -102,36 +102,26 @@ namespace MORPION
             return result;
         }
 
-        public bool DiagonalRemporte(String sens)
+        public bool DiagonalRemporte(String pion)
         {
             bool result = false;
-            if (Grille[1][1]!="*")
-            { 
-                List<List<String>> grilleRecup = Grille;
-                if (sens == "droite-gauche")
+            int compteur = 0;int compteur2 = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                if (Grille[i][i] == pion)
                 {
-                    //grilleRecup=RenverserDiag(grilleRecup);
+                    compteur++;
                 }
-                List<String> recupValues = new List<string>();
-                int cpt = 0;
-                foreach(var ligne in grilleRecup)
+                if (Grille[i][2 - i] == pion)
                 {
-                    recupValues.Add(grilleRecup[cpt][cpt]);
-                    cpt++;
+                    compteur2++;
                 }
-                int similairesCpt = 0;
-                String elem0 = recupValues[0];
-                foreach(var item in recupValues)
-                {
-                    if(item==elem0)
-                    {
-                        similairesCpt++;
-                    }
-                }
-                if(similairesCpt==recupValues.Count)
-                {
-                    result = true;
-                }
+
+            }
+
+            if (compteur == 3 || compteur2 == 3)
+            {
+                result = true;
             }
             return result;
         }
@@ -187,7 +177,7 @@ namespace MORPION
         public bool EstJeuTermine()
         {
             bool result = false;
-            if(HorizontalRemporte() || VerticalRemporte() || DiagonalRemporte("gauche-droite") || DiagonalRemporte("droite-gauche"))
+            if(HorizontalRemporte() || VerticalRemporte() || DiagonalRemporte("X") || DiagonalRemporte("O"))
             {
                 result = true;
             }

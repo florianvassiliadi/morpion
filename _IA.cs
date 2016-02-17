@@ -198,8 +198,7 @@ namespace MORPION
         {
             int vainqueur, nb_de_pions = 0;
             int i, j;
-
-            //On compte le nombre de pions présents sur le plateau
+            
             for (i = 0; i < 3; i++)
             {
                 for (j = 0; j < 3; j++)
@@ -226,8 +225,7 @@ namespace MORPION
                     return 0;
                 }
             }
-
-            //On compte le nombre de séries de 2 pions alignés de chacun des joueurs
+            
 
             Series series=nb_series(jeu, 2);
 
@@ -279,7 +277,6 @@ namespace MORPION
             }
             else
             {
-                //Si le jeu n'est pas fini et que personne n'a gagné, on renvoie 0
                 for (i = 0; i < 3; i++)
                 {
                     for (j = 0; j < 3; j++)
@@ -291,8 +288,6 @@ namespace MORPION
                     }
                 }
             }
-
-            //Si le jeu est fini et que personne n'a gagné, on renvoie 3
             return 3;
         }
     }
